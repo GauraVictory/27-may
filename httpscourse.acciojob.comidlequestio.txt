@@ -1,0 +1,46 @@
+https://course.acciojob.com/idle?question=bedea261-bd68-4e76-aca3-3bab794e91e2
+import java.util.*;
+
+class Solution {
+   static boolean areAnagram(String c1, String c2) {
+                 
+	   // we are creating two hashMap for containing the requency of two diffrent string
+	    char[] arr = c1.toCharArray();
+	   char [] brr = c2.toCharArray();
+	   
+	   HashMap < Character, Integer > hm = new HashMap<>();
+	   HashMap <Character, Integer > hm2 = new HashMap<>();
+
+	   // we iterte over the String c1
+	   for(char c : arr){
+		   hm.put(c, hm.getOrDefault(c, 0)+1);
+	   }
+	   for(char h : brr){
+		   hm2.put(h, hm2.getOrDefault(h, 0) +1);
+	   }
+	 //   System.out.print(hm+" ");
+	 //   System.out.println();
+		// System.out.print(hm+" ");
+	 //   return false;
+	   for( var ch : hm.keySet()){
+		   if(hm.get(ch) != hm2.get(ch)){
+			   return false;
+		   }
+	   }
+	   return true;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str1 = sc.nextLine();
+        String str2 = sc.nextLine();
+        Solution Obj = new Solution();
+        
+        if (Obj.areAnagram(str1, str2))
+            System.out.println("Yes");
+        else
+            System.out.println("No");
+    }
+}
